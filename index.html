@@ -3,6 +3,20 @@
 
 <head>
     <title>Classifica Serie A</title>
+<style>
+.stadio {
+    width: 100%;
+    max-width: 250px;
+}
+
+.stadio:hover {
+    transform: scale(2);
+    position: relative;
+    z-index: 10;
+    display: block;
+    margin: 0 auto;
+}
+</style>
 </head>
 <!-- problema con margin del body se aumento il width nei div rimpicciolisce anche funz. diplsy, chidere professsore -->
     
@@ -46,7 +60,7 @@
     </div>
 
     <div style="width:30%; display:inline-block; vertical-align:top; text-align:right;">
-        <img src="immagini/stadiointer.jpg"; style="width:100%; max-width:250px;">
+        <img src="immagini/stadiointer.jpg" class="stadio">
     </div>
 
 </div>
