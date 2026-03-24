@@ -7,14 +7,15 @@
 .stadio {
     width: 100%;
     max-width: 250px;
+    cursor: pointer;
 }
 
 .stadio:hover {
-    transform: scale(4);
-    position: relative;
+    transform: translate(-50%, -50%) scale(4);
+    position: fixed;
+    top: 50%;
+    left: 50%;
     z-index: 10;
-    display: block;
-    margin: 0 auto;
 }
 </style>
 </head>
@@ -60,7 +61,7 @@
     </div>
 
     <div style="width:30%; display:inline-block; vertical-align:top; text-align:right;">
-        <img src="immagini/stadiointer.jpg" class="stadio">
+        <img src="immagini/stadiointer.jpg" class="stadio" onclick="zoom(this)">
     </div>
 
 </div>
@@ -87,7 +88,7 @@
     </div>
 
     <div style="width:30%; display:inline-block; vertical-align:top; text-align:right;">
-        <img src="immagini/stadionapoli.jpg" class="stadio">
+        <img src="immagini/stadionapoli.jpg" class="stadio" onclick="zoom(this)">
     </div>
 
 </div>
@@ -116,7 +117,7 @@
     </div>
 
     <div style="width:30%; display:inline-block; vertical-align:top; text-align:right;">
-        <img src="immagini/stadiomilan.png" class="stadio">
+        <img src="immagini/stadiomilan.png" class="stadio" onclick="zoom(this)">
     </div>
 
 </div>
@@ -146,7 +147,7 @@
     </div>
 
     <div style="width:30%; display:inline-block; vertical-align:top; text-align:right;">
-        <img src="immagini/stadiocomo.png" class="stadio">
+        <img src="immagini/stadiocomo.png" class="stadio" onclick="zoom(this)">
     </div>
 
 </div>
@@ -176,7 +177,7 @@
     </div>
 
     <div style="width:30%; display:inline-block; vertical-align:top; text-align:right;">
-        <img src="immagini/stadiojuve.png" class="stadio">
+        <img src="immagini/stadiojuve.png" class="stadio" onclick="zoom(this)">
     </div>
 
 </div>
@@ -205,7 +206,7 @@
     </div>
 
     <div style="width:30%; display:inline-block; vertical-align:top; text-align:right;">
-        <img src="immagini/stadioroma.jpg" class="stadio">
+        <img src="immagini/stadioroma.jpg" class="stadio" onclick="zoom(this)">
     </div>
 
 </div>
@@ -245,7 +246,11 @@
      1px  1px 0 black;">
    Guida HTML/CSS
 </a>
-
+<script>
+function zoom(img) {
+    img.classList.toggle("attiva");
+}
+</script>
 </body>
 </html>
 
