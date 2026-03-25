@@ -250,6 +250,14 @@
 function zoom(img) {
     img.classList.toggle("attiva");
 }
+function mostraSquadra(src) {
+    document.getElementById("imgSquadra").src = src;
+    document.getElementById("overlay").style.display = "block";
+}
+
+function chiudi() {
+    document.getElementById("overlay").style.display = "none";
+}
 </script>
 </body>
 </html>
