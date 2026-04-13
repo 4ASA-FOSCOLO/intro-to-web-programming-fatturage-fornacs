@@ -252,25 +252,7 @@
      1px  1px 0 black;">
    Guida HTML/CSS
 </a>
-<script>
-function zoom(img) {
-    img.classList.toggle("attiva");
-}
-function mostraSquadra(src) {
-    document.getElementById("imgSquadra").src = src;
-    document.getElementById("overlay").style.display = "block";
-}
 
-function chiudi() {
-    document.getElementById("overlay").style.display = "none";
-}
-</script>
-<div id="overlay" onclick="chiudi()"
-     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
-     text-align:center; z-index:20;">
-
-    <img id="imgSquadra"
-         style="max-width:80%; max-height:80%; margin-top:5%;">
 </div>
 </body>
 </html>
