@@ -21,7 +21,7 @@
 </head>
 <!-- problema con margin del body se aumento il width nei div rimpicciolisce anche funz. diplsy, chidere professsore -->
     
-<body style="margin:0; border:10px solid white; background-color:#4b830d;">
+<body style="margin:0; border:10px solid whitmostraSquadrae; background-color:#4b830d;">
 
 <div style="background-color:#245b03; padding:30px;">
     <h1 style="color:white; font-family:Arial; font-size:50px; text-align:center; margin:0;">
@@ -62,7 +62,7 @@
     </div>
 
     <div style="width:30%; display:inline-block; vertical-align:top; text-align:right;">
-        <img src="immagini/stadiointer.jpg" class="stadio" onclick="zoom(this)">
+        <img src="immagini/stadiointer.jpg" class="stadio" onclick="this.classList.toggle('attiva')">
     </div>
 
 </div>
