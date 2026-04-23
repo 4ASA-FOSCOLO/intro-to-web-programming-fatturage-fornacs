@@ -1,274 +1,246 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="it">
 <head>
-    <title>Classifica Serie A</title>
+<meta charset="UTF-8">
+<title>Classifica Serie A</title>
 <style>
-.stadio {
-    width: 100%;
-    max-width: 250px;
-    cursor: pointer;
+body{
+    margin:0;
+      /* linear gradient l'ho usato per fare sfondo sfumato */
+    background: linear-gradient(135deg,#0f172a,#1e293b);
+    font-family:Arial;
+}
+ /* ho finito alle 5:40 btw apprezzate
+  migliori possibili sui vari target chiusura migliore senza doverne schiacciare un altro, rivedere*/
+
+header{
+     /* il quarto valore nel rgba è l'alpha e serve per il livello di trasparenza */
+    background: rgba(0,0,0,0.4);
+    padding:30px;
+    text-align:center;
+    color:#00ff88;
+    font-size:50px;
+    font-weight:bold;
+    text-shadow:0 0 10px #00ff88;
 }
 
-.stadio.attiva {
-    transform: translate(-50%,-50%) scale(4);
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    z-index: 10;
+
+.bottone-live{
+    display:block;
+    width:250px;
+    margin:20px auto;
+    text-align:center;
+    background:#00ff88;
+    color:black;
+    padding:12px;
+     /* border radius arrotonda gli spigoli */
+    border-radius:20px;
+    text-decoration:none;
+    font-weight:bold;
 }
 
-.logo {
-    vertical-align:middle; 
-    margin-right:10px; 
-    cursor:pointer;
+
+
+.squadra{
+    width:90%;
+    margin:20px auto;
+    background:rgba(255,255,255,0.08);
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.4);
 }
 
-.logo.attiva {
-    transform: translate(-50%,-50%) scale(10);
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    z-index: 10;
+.titolo{
+    display:flex;
+    align-items:center;
 }
 
+.logo{
+    width:50px;
+    margin-right:15px;
+}
+
+h2{
+    color:white;
+    text-shadow:1px 1px 2px black;
+}
+
+.menu{
+    margin-top:10px;
+}
+
+.menu a{
+    display:inline-block;
+    margin:5px;
+    padding:10px 15px;
+    background:#00ff88;
+    color:black;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.contenuto{
+    display:none;
+    /* così non appaiono subito sullo schermo ma si apre solo con il target, ad esempio se clicco su storia1/storia2 stadio ecc.. diventano i target */
+    margin-top:15px;
+    color:white;
+    font-weight:bold;
+}
+
+.contenuto:target{
+    display:block;
+}
+
+.contenuto img{
+    width:300px;
+    border-radius:10px;
+}
+
+
+
+.popup-classifica{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    z-index:1000;
+}
+
+.popup-classifica:target{
+    display:block;
+}
+
+.popup-content{
+    position:relative;
+    width:80%;
+    height:80%;
+    margin:5% auto;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+}
+
+.tasto-chiusura-iframe{
+    position:absolute;
+    top:10px;
+    right:20px;
+    font-size:35px;
+    text-decoration:none;
+    color:black;
+    font-weight:bold;
+}
+
+iframe{
+    width:100%;
+    height:100%;
+    border:none;
+}
 </style>
 </head>
+<body>
 
-    
-<body style="margin:0; border:10px solid whitmostraSquadrae; background-color:#4b830d;">
+<header>⚽ Serie A Classifica</header>
 
-<div style="background-color:#245b03; padding:30px;">
-    <h1 style="color:white; font-family:Arial; font-size:50px; text-align:center; margin:0;">
-        Serie A Classifica
-    </h1>
+<a class="bottone-live" href="#popup-classifica"> Classifica Live</a>   <!--<a diventa una specie di link interno e va con l'href va a rifersi al pop up e cercandolo
+                                                                                con il nome tramite l'id lho fa apparire con la funzione target-->
+
+<div id="popup-classifica" class="popup-classifica">
+    <div class="popup-content">
+        <!--&times serve per fare la "X" come tasto di chiusura, # riporta tutto allo stato iniziale -->
+        <a href="#" class="tasto-chiusura-iframe">&times;</a>
+        <iframe src="https://www.legaseriea.it/serie-a/classifica"></iframe>
+    </div>
 </div>
 
 
-    
-<hr style="border:2px solid white">
 
-<h2 style="text-align:center;font-size:30px; font-family:Arial; color:white;color:White;text-shadow:
-    -1px -1px 0 black,
-     1px -1px 0 black,
-    -1px  1px 0 black,
-     1px  1px 0 black;">
-    Prime 6 Squadre
-</h2>
 
-<hr style="border:2px solid white">
 
-<div style="width:100%; padding:20px;">
-
-    <div style="width:65%; display:inline-block; vertical-align:top;">
-        <img src="immagini/Inter.png" width="50" class="logo"
-        onclick="this.src = this.src.includes('formazione_inter.jpeg') ? 'immagini/Inter.png' : 'immagini/formazione_inter.jpeg'; this.classList.toggle('attiva');">
-        <h2 style="display:inline;White;text-shadow:
-    -1px -1px 0 white,
-     1px -1px 0 white,
-    -1px  1px 0 white,
-     1px  1px 0 white; font-family:Arial;font-weight: bold;font-size:30px">
-            Inter - 68 punti</h2>
-
-        <p style="font-family:Arial; font-size:18px; font-weight:bold;">
-            Fondato il 9 marzo 1908 da un gruppo di soci dissidenti del Milan,
-            il club ha sempre militato nella massima serie del campionato nazionale a partire dalla propria prima partita ufficiale,nel 1909
-        </p>
+<div class="squadra">
+    <div class="titolo"><img src="immagini/Inter.png" class="logo"><h2>Inter - 68 punti</h2></div>
+    <div class="menu">
+        <a href="#storia1">Storia</a>
+        <a href="#stadio1">Stadio</a>
+        <a href="#formazione1">Formazione</a>
     </div>
-
-    <div style="width:30%; display:inline-block; vertical-align:top; text-align:right;">
-        <img src="immagini/stadiointer.jpg" class="stadio" onclick="this.classList.toggle('attiva')">
-    </div>
-
+    <div id="storia1" class="contenuto">Fondato il 9 marzo 1908 da un gruppo di soci dissidenti del Milan,
+            il club ha sempre militato nella massima serie del campionato nazionale a partire dalla propria prima partita ufficiale,nel 1909</div>
+    <div id="stadio1" class="contenuto"><img src="immagini/stadiointer.jpg"></div>
+    <div id="formazione1" class="contenuto"><img src="immagini/formazione_inter.jpeg"></div>
 </div>
 
-<hr style="border:2px solid white">
-
-    
-<div style="width:100%; padding:20px;">
-
-    <div style="width:65%; display:inline-block; vertical-align:top;">
-        <img src="immagini/Napoli.png" width="50" class="logo"
-        onclick="this.src = this.src.includes('formazione_napoli.jpeg') ? 'immagini/Napoli.png' : 'immagini/formazione_napoli.jpeg'; this.classList.toggle('attiva');">
-        <h2 style="display:inline; font-family:Arial;text-shadow:
-    -1px -1px 0 white,
-     1px -1px 0 white,
-    -1px  1px 0 white,
-     1px  1px 0 white;font-weight: bold;font-size:30px">
-
-            Napoli - 62 punti</h2>
-
-        <p style="font-family:Arial; font-size:18px; font-weight:bold;">
-            La fondazione del club avvenne di fatto il 25 agosto 1926
-            in seguito al cambio di denominazione del Foot-Ball Club Internazionale-Naples, società costituitasi nel 1922, in Associazione Calcio Napoli.
-        </p>
+<div class="squadra">
+    <div class="titolo"><img src="immagini/Napoli.png" class="logo"><h2>Napoli - 62 punti</h2></div>
+    <div class="menu">
+        <a href="#storia2">Storia</a>
+        <a href="#stadio2">Stadio</a>
+        <a href="#formazione2">Formazione</a>
     </div>
-
-    <div style="width:30%; display:inline-block; vertical-align:top; text-align:right;">
-        <img src="immagini/stadionapoli.jpg" class="stadio" onclick="this.classList.toggle('attiva')">
-    </div>
-
+    <div id="storia2" class="contenuto"> La fondazione del club avvenne di fatto il 25 agosto 1926
+            in seguito al cambio di denominazione del Foot-Ball Club Internazionale-Naples, società costituitasi nel 1922, in Associazione Calcio Napoli.</div>
+    <div id="stadio2" class="contenuto"><img src="immagini/stadionapoli.jpg"></div>
+    <div id="formazione2" class="contenuto"><img src="immagini/formazione_napoli.jpeg"></div>
 </div>
 
-<hr style="border:2px solid white">
-
-
-    
-<div style="width:100%; padding:20px;">
-
-    <div style="width:65%; display:inline-block; vertical-align:top;">
-        <img src="immagini/LogoMilan.png" width="50" class="logo"
-        onclick="this.src = this.src.includes('formazione_milan.jpeg') ? 'immagini/LogoMilan.png' : 'immagini/formazione_milan.jpeg'; this.classList.toggle('attiva');">
-        <h2 style="display:inline; font-family:Arial;;text-shadow:
-    -1px -1px 0 white,
-     1px -1px 0 white,
-    -1px  1px 0 white,
-     1px  1px 0 white;font-weight: bold;font-size:30px">
-
-            Milan - 60 punti</h2>
-
-        <p style="font-family:Arial; font-size:18px; font-weight:bold;">
-            Fondato nel 1899 da un gruppo di inglesi e italiani,è uno dei club più antichi d'Italia,
+<div class="squadra">
+    <div class="titolo"><img src="immagini/LogoMilan.png" class="logo"><h2>Milan - 60 punti</h2></div>
+    <div class="menu">
+        <a href="#storia3">Storia</a>
+        <a href="#stadio3">Stadio</a>
+        <a href="#formazione3">Formazione</a>
+    </div>
+    <div id="storia3" class="contenuto">Fondato nel 1899 da un gruppo di inglesi e italiani,è uno dei club più antichi d'Italia,
             nonché uno dei più blasonati al mondo e con maggior tradizione sportiva. Indossa una divisa a strisce verticali di colore rosso e nero,
-            da cui il soprannome di "rossoneri".
-        </p>
-    </div>
-
-    <div style="width:30%; display:inline-block; vertical-align:top; text-align:right;">
-        <img src="immagini/stadiomilan.png" class="stadio" onclick="this.classList.toggle('attiva')">
-    </div>
-
+            da cui il soprannome di "rossoneri".</div>
+    <div id="stadio3" class="contenuto"><img src="immagini/stadiomilan.png"></div>
+    <div id="formazione3" class="contenuto"><img src="immagini/formazione_milan.jpeg"></div>
 </div>
 
-<hr style="border:2px solid white">
-
-
-
-    
-<div style="width:100%; padding:20px;">
-
-    <div style="width:65%; display:inline-block; vertical-align:top;">
-        <img src="immagini/como.png" width="50" class="logo"
-        onclick="this.src = this.src.includes('formazione_como.jpeg') ? 'immagini/como.png' : 'immagini/formazione_como.jpeg'; this.classList.toggle('attiva');">
-        <h2 style="display:inline; font-family:Arial;;text-shadow:
-    -1px -1px 0 white,
-     1px -1px 0 white,
-    -1px  1px 0 white,
-     1px  1px 0 white;font-weight: bold;font-size:30px">
-
-            Como - 54 punti</h2>
-
-        <p style="font-family:Arial; font-size:18px; font-weight:bold;">
-            La tradizione sportiva del principale sodalizio calcistico comense,
+<div class="squadra">
+    <div class="titolo"><img src="immagini/como.png" class="logo"><h2>Como - 54 punti</h2></div>
+    <div class="menu">
+        <a href="#storia4">Storia</a>
+        <a href="#stadio4">Stadio</a>
+        <a href="#formazione4">Formazione</a>
+    </div>
+    <div id="storia4" class="contenuto"> La tradizione sportiva del principale sodalizio calcistico comense,
             la 26ª a livello nazionale secondo i criteri della FIGC,
-            iniziò nel 1907 con la nascita del Como Foot-Ball Club.
-        </p>
-    </div>
-
-    <div style="width:30%; display:inline-block; vertical-align:top; text-align:right;">
-        <img src="immagini/stadiocomo.png" class="stadio" onclick="this.classList.toggle('attiva')">
-    </div>
-
+            iniziò nel 1907 con la nascita del Como Foot-Ball Club.</div>
+    <div id="stadio4" class="contenuto"><img src="immagini/stadiocomo.png"></div>
+    <div id="formazione4" class="contenuto"><img src="immagini/formazione_como.jpeg"></div>
 </div>
 
-<hr style="border:2px solid white">
-
-
-
-    
-<div style="width:100%; padding:20px;">
-
-    <div style="width:65%; display:inline-block; vertical-align:top;">
-        <img src="immagini/juve.png" width="50" class="logo"
-        onclick="this.src = this.src.includes('formazione_juventus.jpeg') ? 'immagini/juve.png' : 'immagini/formazione_juventus.jpeg'; this.classList.toggle('attiva');">
-        <h2 style="display:inline; font-family:Arial;;text-shadow:
-    -1px -1px 0 white,
-     1px -1px 0 white,
-    -1px  1px 0 white,
-     1px  1px 0 white;font-weight: bold;font-size:30px">
-
-            Juventus - 53 punti</h2>
-
-        <p style="font-family:Arial; font-size:18px; font-weight:bold;">
-            Fondata nel 1897 da un gruppo di studenti liceali locali,"la Juve",
+<div class="squadra">
+    <div class="titolo"><img src="immagini/juve.png" class="logo"><h2>Juventus - 53 punti</h2></div>
+    <div class="menu">
+        <a href="#storia5">Storia</a>
+        <a href="#stadio5">Stadio</a>
+        <a href="#formazione5">Formazione</a>
+    </div>
+    <div id="storia5" class="contenuto">Fondata nel 1897 da un gruppo di studenti liceali locali,"la Juve",
             com'è colloquialmente abbreviata,
-            è il secondo club professionistico per anzianità tra quelli tuttora attivi nel Paese, dopo il Genoa (1893).
-        </p>
-    </div>
-
-    <div style="width:30%; display:inline-block; vertical-align:top; text-align:right;">
-        <img src="immagini/stadiojuve.png" class="stadio" onclick="this.classList.toggle('attiva')">
-    </div>
-
+            è il secondo club professionistico per anzianità tra quelli tuttora attivi nel Paese, dopo il Genoa (1893).</div>
+    <div id="stadio5" class="contenuto"><img src="immagini/stadiojuve.png"></div>
+    <div id="formazione5" class="contenuto"><img src="immagini/formazione_juventus.jpeg"></div>
 </div>
 
-<hr style="border:2px solid white">
-
-
-
-    
-<div style="width:100%; padding:20px;">
-
-    <div style="width:65%; display:inline-block; vertical-align:top;">
-        <img src="immagini/Roma.png" width="50" class="logo"
-        onclick="this.src = this.src.includes('formazione_roma.jpeg') ? 'immagini/Roma.png' : 'immagini/formazione_roma.jpeg'; this.classList.toggle('attiva');">
-        <h2 style="display:inline; font-family:Arial;;text-shadow:
-    -1px -1px 0 white,
-     1px -1px 0 white,
-    -1px  1px 0 white,
-     1px  1px 0 white;font-weight: bold;font-size:30px">
-
-            Roma - 51 punti</h2>
-
-        <p style="font-family:Arial; font-size:18px; font-weight:bold;">
-            Fondata nel 1927 grazie alla fusione di tre squadre, ha come colori sociali il rosso e il giallo,
-            tonalità cromatiche corrispondenti al gonfalone del Campidoglio. A livello nazionale i Giallorossi, uno dei soprannomi che contraddistinguono la Roma insieme a Lupa e Magica.
-        </p>
+<div class="squadra">
+    <div class="titolo"><img src="immagini/Roma.png" class="logo"><h2>Roma - 51 punti</h2></div>
+    <div class="menu">
+        <a href="#storia6">Storia</a>
+        <a href="#stadio6">Stadio</a>
+        <a href="#formazione6">Formazione</a>
     </div>
-
-    <div style="width:30%; display:inline-block; vertical-align:top; text-align:right;">
-        <img src="immagini/stadioroma.jpg" class="stadio" onclick="this.classList.toggle('attiva')">
-    </div>
-
+    <div id="storia6" class="contenuto">Fondata nel 1927 grazie alla fusione di tre squadre, ha come colori sociali il rosso e il giallo,
+            tonalità cromatiche corrispondenti al gonfalone del Campidoglio. A livello nazionale i Giallorossi, uno dei soprannomi che contraddistinguono la Roma insieme a Lupa e Magica.</div>
+    <div id="stadio6" class="contenuto"><img src="immagini/stadioroma.jpg"></div>
+    <div id="formazione6" class="contenuto"><img src="immagini/formazione_roma.jpeg"></div>
 </div>
 
-<hr style="border:2px solid white">
-
-
-
-
-    
-<div style="text-align:center; margin-top:50px;">
-
-    <p style="font-family:Arial; font-size:22px; font-weight:bold;text-shadow:
-    -1px -1px 0 white,
-     1px -1px 0 white,
-    -1px  1px 0 white,
-     1px  1px 0 white;ont-weight: bold;">
-        Classifica aggiornata
-    </p>
-
-    <iframe src="https://www.legaseriea.it/serie-a/classifica"
-        style="width:60%; height:300px;">
-    </iframe>
-
-</div>
-
-<br>
-
-
-
-    
-<a href="https://www.w3schools.com/"
-   style="color:white; font-family:Impact; font-size:20px;text-shadow:
-    -1px -1px 0 black,
-     1px -1px 0 black,
-    -1px  1px 0 black,
-     1px  1px 0 black;">
-   Guida HTML/CSS
-</a>
-
-</div>
 </body>
 </html>
 
