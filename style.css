@@ -72,6 +72,21 @@ h2{
     text-decoration:none;
     font-weight:bold;
 }
+/* menu bottoni per formazione titolari tempo reale */
+
+.menu button{
+
+    display:inline-block;
+    margin:5px;
+    padding:10px 15px;
+    background:#00ff88;
+    color:black;
+    border:none;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+
+}
 
 .contenuto{
     display:none;
