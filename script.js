@@ -1,42 +1,30 @@
-function mostra(id){
+function caricaFormazione(squadra,id){
 
-    let contenuti =
-    document.querySelectorAll(".contenuto"); contenuti.forEach(function(elemento)
-            {elemento.style.display="none";});
-      
-  document.getElementById(id)
-          .style.display="block";}
+let area = document.getElementById(id);
 
-function caricaFormazione(squadra,id)
-{mostra(id);
-  let area=
-    document.getElementById(id);
-    area.innerHTML= "Caricamento formazione...";
+area.style.display = "block";
+area.innerHTML = "Caricamento...";
 
-   fetch("https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=" + squadra)
-        .then(function(risposta){return risposta.json();})
-        .then(function(dati){
+fetch("https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=" + squadra)
 
-        let team=dati.teams[0];
+.then(r => r.json())
 
-        area.innerHTML=`
+.then(dati => {
 
-        <h3>${team.strTeam}</h3>
+let t = dati.teams[0];
 
-        <img src="${team.strTeamBadge}"
-        width="120">
+area.innerHTML = `
+<h3>${t.strTeam}</h3>
+<img src="${t.strTeamBadge}" width="120">
+<p><b>Stadio:</b> ${t.strStadium}</p>
+<p><b>Anno fondazione:</b> ${t.intFormedYear}</p>
+<p>Dati caricati in tempo reale</p>
+`;
 
-        <p><b>Stadio:</b>
-        ${team.strStadium}</p>
+})
 
-        <p><b>Anno fondazione:</b>
-        ${team.intFormedYear}</p>
+.catch(() => {
+area.innerHTML = "Errore caricamento dati";
+});
 
-        <p>
-        Dati caricati online con JavaScript
-        </p> ;})
-
-    .catch(function()
-      { area.innerHTML=
-        "Errore caricamento dati";});
 }
