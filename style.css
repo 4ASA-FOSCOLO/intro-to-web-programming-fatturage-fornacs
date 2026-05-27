@@ -200,8 +200,12 @@ margin-top:15px;
 
 .contenuto img{
 max-width:100%;
+max-height:400px;
+width:auto;
 height:auto;
 border-radius:10px;
+display:block;
+margin:10px auto;
 }
 
 .logo{
