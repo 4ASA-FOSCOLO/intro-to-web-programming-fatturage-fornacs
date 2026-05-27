@@ -7,107 +7,235 @@
 </head>
 <body>
 
-<header>⚽ Serie A Classifica</header>
+<header>⚽ Serie A </header>
 
-<a class="bottone-live" href="#popup-classifica"> Classifica Live</a>   <!--<a diventa una specie di link interno e va con l'href va a rifersi al pop up e cercandolo
-                                                                                con il nome tramite l'id lho fa apparire con la funzione target-->
+<div id="wallet">💰 Diprè Coin: <span id="saldo">1000</span></div>
 
-<div id="popup-classifica" class="popup-classifica">
-    <div class="popup-content">
-        <!--&times serve per fare la "X" come tasto di chiusura, # riporta tutto allo stato iniziale -->
-        <a href="#" class="tasto-chiusura-iframe">&times;</a>
-        <iframe src="https://www.legaseriea.it/serie-a/classifica"></iframe>
-    </div>
+<!-- Menu -->
+<div class="dropdown">
+<button class="dropbtn">CASINO</button>
+<div class="dropdown-content">
+<button onclick="openGame('bj')">Blackjack</button>
+<button onclick="openGame('ru')">Roulette</button>
+<button onclick="openGame('sl')">Slot</button>
+<button onclick="openBonus()">Bonus</button>
+</div>
 </div>
 
+<!-- Bonus per + 100 "1234" -->
+<div id="bonusBox">
+<div class="bonus-content">
+<span class="close" onclick="closeBonus()">×</span>
+<h3>Bonus</h3>
+<input id="bonusCode" placeholder="codice">
+<button onclick="checkBonus()">OK</button>
+<p id="bonusMsg"></p>
+</div>
+</div>
+
+<!-- classifica live -->
+<a class="bottone-live" href="#popup-seriea"> Classifica Live Aggiornata</a>
 
 
+<!-- pop up classifica live -->
+<div id="popup-seriea" class="popup-classifica">
+    <div class="popup-content">
 
+        <a href="#" class="tasto-chiusura-iframe">&times;</a>
 
+        <iframe src="https://www.legaseriea.it/serie-a/classifica"></iframe>
+
+    </div>
+</div>   
+
+    
+<!-- SERIE A -->
+
+<!-- IinteR -->
 <div class="squadra">
-    <div class="titolo"><img src="immagini/Inter.png" class="logo"><h2>Inter - 68 punti</h2></div>
+    <div class="titolo">
+        <img src="immagini/Inter.png" class="logo">
+        <h2>Inter - 68 punti</h2>
+    </div>
     <div class="menu">
         <a href="#storia1">Storia</a>
         <a href="#stadio1">Stadio</a>
         <a href="#formazione1">Formazione</a>
     </div>
-    <div id="storia1" class="contenuto">Fondato il 9 marzo 1908 da un gruppo di soci dissidenti del Milan,
-            il club ha sempre militato nella massima serie del campionato nazionale a partire dalla propria prima partita ufficiale,nel 1909</div>
+    <div id="storia1" class="contenuto">Fondato il 9 marzo 1908 da un gruppo di soci dissidenti del Milan, il club ha sempre militato nella massima serie del campionato nazionale a partire dalla propria prima partita ufficiale,nel 1909</div>
     <div id="stadio1" class="contenuto"><img src="immagini/stadiointer.jpg"></div>
     <div id="formazione1" class="contenuto"><img src="immagini/formazione_inter.jpeg"></div>
 </div>
 
+<!-- Napoli -->
 <div class="squadra">
-    <div class="titolo"><img src="immagini/Napoli.png" class="logo"><h2>Napoli - 62 punti</h2></div>
+    <div class="titolo">
+        <img src="immagini/Napoli.png" class="logo">
+        <h2>Napoli - 62 punti</h2>
+    </div>
     <div class="menu">
         <a href="#storia2">Storia</a>
         <a href="#stadio2">Stadio</a>
         <a href="#formazione2">Formazione</a>
     </div>
-    <div id="storia2" class="contenuto"> La fondazione del club avvenne di fatto il 25 agosto 1926
-            in seguito al cambio di denominazione del Foot-Ball Club Internazionale-Naples, società costituitasi nel 1922, in Associazione Calcio Napoli.</div>
+    <div id="storia2" class="contenuto">La fondazione del club avvenne di fatto il 25 agosto 1926 in seguito al cambio di denominazione del Foot-Ball Club Internazionale-Naples, società costituitasi nel 1922, in Associazione Calcio Napoli.
+
+</div>
     <div id="stadio2" class="contenuto"><img src="immagini/stadionapoli.jpg"></div>
     <div id="formazione2" class="contenuto"><img src="immagini/formazione_napoli.jpeg"></div>
 </div>
 
+<!-- Milan -->
 <div class="squadra">
-    <div class="titolo"><img src="immagini/LogoMilan.png" class="logo"><h2>Milan - 60 punti</h2></div>
+    <div class="titolo">
+        <img src="immagini/LogoMilan.png" class="logo">
+        <h2>Milan - 60 punti</h2>
+    </div>
     <div class="menu">
         <a href="#storia3">Storia</a>
         <a href="#stadio3">Stadio</a>
         <a href="#formazione3">Formazione</a>
     </div>
-    <div id="storia3" class="contenuto">Fondato nel 1899 da un gruppo di inglesi e italiani,è uno dei club più antichi d'Italia,
-            nonché uno dei più blasonati al mondo e con maggior tradizione sportiva. Indossa una divisa a strisce verticali di colore rosso e nero,
-            da cui il soprannome di "rossoneri".</div>
+    <div id="storia3" class="contenuto">Fondato nel 1899 da un gruppo di inglesi e italiani,è uno dei club più antichi d'Italia, nonché uno dei più blasonati al mondo e con maggior tradizione sportiva. Indossa una divisa a strisce verticali di colore rosso e nero, da cui il soprannome di "rossoneri".
+
+</div>
     <div id="stadio3" class="contenuto"><img src="immagini/stadiomilan.png"></div>
     <div id="formazione3" class="contenuto"><img src="immagini/formazione_milan.jpeg"></div>
 </div>
 
+<!-- Como -->
 <div class="squadra">
-    <div class="titolo"><img src="immagini/como.png" class="logo"><h2>Como - 54 punti</h2></div>
+    <div class="titolo">
+        <img src="immagini/como.png" class="logo">
+        <h2>Como - 54 punti</h2>
+    </div>
     <div class="menu">
         <a href="#storia4">Storia</a>
         <a href="#stadio4">Stadio</a>
         <a href="#formazione4">Formazione</a>
     </div>
-    <div id="storia4" class="contenuto"> La tradizione sportiva del principale sodalizio calcistico comense,
-            la 26ª a livello nazionale secondo i criteri della FIGC,
-            iniziò nel 1907 con la nascita del Como Foot-Ball Club.</div>
+    <div id="storia4" class="contenuto">La tradizione sportiva del principale sodalizio calcistico comense, la 26ª a livello nazionale secondo i criteri della FIGC, iniziò nel 1907 con la nascita del Como Foot-Ball Club.
+
+</div>
     <div id="stadio4" class="contenuto"><img src="immagini/stadiocomo.png"></div>
     <div id="formazione4" class="contenuto"><img src="immagini/formazione_como.jpeg"></div>
 </div>
 
+<!-- Juventus -->
 <div class="squadra">
-    <div class="titolo"><img src="immagini/juve.png" class="logo"><h2>Juventus - 53 punti</h2></div>
+    <div class="titolo">
+        <img src="immagini/juve.png" class="logo">
+        <h2>Juventus - 53 punti</h2>
+    </div>
     <div class="menu">
         <a href="#storia5">Storia</a>
         <a href="#stadio5">Stadio</a>
         <a href="#formazione5">Formazione</a>
     </div>
-    <div id="storia5" class="contenuto">Fondata nel 1897 da un gruppo di studenti liceali locali,"la Juve",
-            com'è colloquialmente abbreviata,
-            è il secondo club professionistico per anzianità tra quelli tuttora attivi nel Paese, dopo il Genoa (1893).</div>
+    <div id="storia5" class="contenuto">Fondata nel 1897 da un gruppo di studenti liceali locali,"la Juve", com'è colloquialmente abbreviata, è il secondo club professionistico per anzianità tra quelli tuttora attivi nel Paese, dopo il Genoa (1893).
+
+</div>
     <div id="stadio5" class="contenuto"><img src="immagini/stadiojuve.png"></div>
     <div id="formazione5" class="contenuto"><img src="immagini/formazione_juventus.jpeg"></div>
 </div>
 
+
+<!-- Roma -->
 <div class="squadra">
-    <div class="titolo"><img src="immagini/Roma.png" class="logo"><h2>Roma - 51 punti</h2></div>
+    <div class="titolo">
+        <img src="immagini/Roma.png" class="logo">
+        <h2>Roma - 51 punti</h2>
+    </div>
     <div class="menu">
         <a href="#storia6">Storia</a>
         <a href="#stadio6">Stadio</a>
         <a href="#formazione6">Formazione</a>
     </div>
-    <div id="storia6" class="contenuto">Fondata nel 1927 grazie alla fusione di tre squadre, ha come colori sociali il rosso e il giallo,
-            tonalità cromatiche corrispondenti al gonfalone del Campidoglio. A livello nazionale i Giallorossi, uno dei soprannomi che contraddistinguono la Roma insieme a Lupa e Magica.</div>
+    <div id="storia6" class="contenuto">Fondata nel 1927 grazie alla fusione di tre squadre, ha come colori sociali il rosso e il giallo, tonalità cromatiche corrispondenti al gonfalone del Campidoglio. A livello nazionale i Giallorossi, uno dei soprannomi che contraddistinguono la Roma insieme a Lupa e Magica.
+
+</div>
     <div id="stadio6" class="contenuto"><img src="immagini/stadioroma.jpg"></div>
     <div id="formazione6" class="contenuto"><img src="immagini/formazione_roma.jpeg"></div>
 </div>
 
-</body>
-</html>
 
+    
+    <!-- Parte CASINO -->
+
+<!-- Blackjack -->
+<div id="bj" class="game">
+<div class="box">
+<span class="close" onclick="closeGame()">×</span>
+
+<h2>Blackjack</h2>
+
+<input id="betBJ" placeholder="puntata">
+
+<div class="table">
+<div class="side">
+<h3>TU</h3>
+<div id="player" class="cards"></div>
+</div>
+
+<div class="side">
+<h3>BANCO</h3>
+<div id="dealer" class="cards"></div>
+</div>
+</div>
+
+<button onclick="newHand()">Nuova mano</button>
+<button onclick="hit()">Carta</button>
+<button onclick="stand()">Stai</button>
+
+<p id="bjResult"></p>
+</div>
+</div>
+
+    
+
+<!-- Roulette -->
+<div id="ru" class="game">
+<div class="box">
+<span class="close" onclick="closeGame()">×</span>
+
+<h2>Roulette</h2>
+
+<input id="betR" placeholder="puntata">
+<input id="num" placeholder="0-9">
+<input id="color" placeholder="rosso/nero">
+
+<button onclick="spin()">Gira</button>
+
+<p id="rResult"></p>
+</div>
+</div>
+
+
+    
+<!-- Slot -->
+<div id="sl" class="game">
+<div class="box">
+<span class="close" onclick="closeGame()">×</span>
+
+<h2>Slot</h2>
+
+    
+<input id="betS" placeholder="puntata">
+
+<div class="slot">
+<div id="s1" class="reel">🍒</div>
+<div id="s2" class="reel">🍋</div>
+<div id="s3" class="reel">🔔</div>
+</div>
+
+    
+<button onclick="spinSlot()">SPIN</button>
+
+<p id="sResult"></p>
+</div>
+</div>
+
+<script>
 
 
 
