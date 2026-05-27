@@ -80,8 +80,21 @@ bonusMsg.innerText="Codice errato";
 
 /* game*/
 function openGame(id){
-document.getElementById(id).style.display="block";
-if(id==="bj") newHand();
+document.querySelectorAll(".game").forEach(g => {
+    g.style.display = "none";
+});
+
+const game = document.getElementById(id);
+game.style.display = "block";
+
+game.style.position = "fixed";
+game.style.top = "0";
+game.style.left = "0";
+game.style.width = "100%";
+game.style.height = "100%";
+game.style.zIndex = "10000";
+
+if(id === "bj") newHand();
 }
 
 function closeGame(){
