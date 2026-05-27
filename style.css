@@ -198,6 +198,10 @@ margin-top:15px;
 }
 .contenuto:target{display:block}
 
+.logo{
+width:50px;
+height:50px;
+object-fit:contain;}
 
 
 /* game(parte casino)  */
