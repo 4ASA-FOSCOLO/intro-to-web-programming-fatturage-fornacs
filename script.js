@@ -1,11 +1,4 @@
-
-// collegamento elementi con html 
-
-
-
-
-
-// saldo per far si che rimanga in memoria quello precedente
+  // saldo per far si che rimanga in memoria quello precedente
 let saldo = localStorage.getItem("dipreCoin");
 
 if(saldo===null){
@@ -20,7 +13,7 @@ function update(){
 
 document.getElementById("saldo").innerText=saldo;
 
-/* salva automaticamente il saldo  */
+/* salva automaticamente */
 localStorage.setItem("dipreCoin",saldo);
 
 }
@@ -28,7 +21,7 @@ localStorage.setItem("dipreCoin",saldo);
 
 
 
-/* funzione bonus (codice=1234) da +100 */
+/* BONUS 1234 */
 function openBonus(){
 bonusBox.style.display="block";
 bonusCode.value="";
@@ -53,25 +46,10 @@ bonusMsg.innerText="Codice errato";
 }
 }
 
-
-
-/* game*/
+/* GAME */
 function openGame(id){
-document.querySelectorAll(".game").forEach(g => {
-    g.style.display = "none";
-});
-
-const game = document.getElementById(id);
-game.style.display = "block";
-
-game.style.position = "fixed";
-game.style.top = "0";
-game.style.left = "0";
-game.style.width = "100%";
-game.style.height = "100%";
-game.style.zIndex = "10000";
-
-if(id === "bj") newHand();
+document.getElementById(id).style.display="block";
+if(id==="bj") newHand();
 }
 
 function closeGame(){
@@ -87,9 +65,7 @@ rResult.innerText="";
 sResult.innerText="";
 }
 
-
-
-/* Bblackjack carte simboli e valori */
+/* Bblackjack carte */
 let p=[],d=[];
 
 const semi=["♠","♥","♦","♣"];
@@ -248,8 +224,6 @@ newHand();
 
 }
 
-
-
 /* Roulette valori */
 function spin(){
 let bet=parseInt(betR.value);
@@ -267,9 +241,7 @@ rResult.innerText=r+" "+col;
 update();
 }
 
-
-
-/* slot simboli e valori */
+/* Slot valori */
 function spinSlot(){
 
 let bet=parseInt(betS.value);
@@ -300,4 +272,3 @@ update();
 }
 
 update();
-
