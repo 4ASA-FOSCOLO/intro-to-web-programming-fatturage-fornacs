@@ -32,7 +32,6 @@ z-index:2000;
 
 
 
-
 /* menu */
 .dropdown{
 position:fixed;
@@ -58,6 +57,7 @@ background:#111;
 min-width:180px;
 border-radius:10px;
 overflow:hidden;
+z-index:3001;
 }
 
 .dropdown-content button{
@@ -198,6 +198,12 @@ margin-top:15px;
 }
 .contenuto:target{display:block}
 
+.contenuto img{
+max-width:100%;
+height:auto;
+border-radius:10px;
+}
+
 .logo{
 width:60px;
 height:60px;
@@ -209,7 +215,7 @@ display:inline-block;}
 
 /* game(parte casino)  */
 .game{
-display:none;
+display:none !important;
 position:fixed;
 top:0;
 left:0;
@@ -219,8 +225,13 @@ background:rgba(0,0,0,0.85);
 z-index:4000;
 }
 
+.game[style*="display: block"]{
+display:block !important;
+}
+
 .box{
 width:80%;
+max-width:600px;
 margin:5% auto;
 background:white;
 color:black;
