@@ -1,4 +1,4 @@
-
+document.addEventListener("DOMContentLoaded", () => {
 // collegamento elementi con html 
 
 const bonusBox = document.getElementById("bonusBox");
@@ -310,4 +310,4 @@ update();
 }
 
 update();
-
+});
