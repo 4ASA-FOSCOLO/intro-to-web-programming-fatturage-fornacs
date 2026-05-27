@@ -65,7 +65,7 @@ rResult.innerText="";
 sResult.innerText="";
 }
 
-/* Bblackjack carte */
+/* Blackjack carte */
 let p=[],d=[];
 
 const semi=["♠","♥","♦","♣"];
@@ -230,6 +230,11 @@ let bet=parseInt(betR.value);
 let n=parseInt(num.value);
 let c=color.value.toLowerCase();
 
+if(isNaN(bet)||bet<=0){
+document.getElementById("rResult").innerText="Inserisci puntata valida";
+return;
+}
+
 let r=Math.random()*10|0;
 let col=["rosso","nero"][Math.random()*2|0];
 
@@ -237,7 +242,7 @@ if(n===r)saldo+=bet*5;
 else if(c===col)saldo+=bet*2;
 else saldo-=bet;
 
-rResult.innerText=r+" "+col;
+document.getElementById("rResult").innerText=r+" "+col;
 update();
 }
 
@@ -245,7 +250,10 @@ update();
 function spinSlot(){
 
 let bet=parseInt(betS.value);
-if(isNaN(bet))return;
+if(isNaN(bet)||bet<=0){
+document.getElementById("sResult").innerText="Inserisci puntata valida";
+return;
+}
 
 let sym=["🍒","🍋","🔔","⭐"];
 
@@ -260,10 +268,10 @@ clearInterval(t);
 
 if(s1.innerText===s2.innerText&&s2.innerText===s3.innerText){
 saldo+=bet*5;
-sResult.innerText="WIN";
+document.getElementById("sResult").innerText="WIN";
 }else{
 saldo-=bet;
-sResult.innerText="LOSE";
+document.getElementById("sResult").innerText="LOSE";
 }
 
 update();
