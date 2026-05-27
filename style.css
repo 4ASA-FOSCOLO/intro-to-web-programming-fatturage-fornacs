@@ -195,17 +195,19 @@ font-weight:bold;
 .contenuto{
 display:none;
 margin-top:15px;
+text-align:center;
 }
 .contenuto:target{display:block}
 
 .contenuto img{
 max-width:100%;
-max-height:400px;
+max-height:250px;
 width:auto;
 height:auto;
 border-radius:10px;
 display:block;
 margin:10px auto;
+object-fit:contain;
 }
 
 .logo{
@@ -360,3 +362,23 @@ border-color:#00ff88;
 box-shadow:0 0 5px #00ff88;
 }
 
+/* Media queries per responsive design */
+@media (max-width: 768px) {
+.contenuto img{
+max-height:300px;
+}
+}
+
+@media (max-width: 480px) {
+.contenuto img{
+max-height:200px;
+}
+
+.table{
+flex-direction:column;
+}
+
+.side{
+width:100%;
+}
+}
