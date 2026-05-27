@@ -1,4 +1,34 @@
-    // saldo per far si che rimanga in memoria quello precedente
+
+// collegamento elementi con html 
+
+const bonusBox = document.getElementById("bonusBox");
+const bonusCode = document.getElementById("bonusCode");
+const bonusMsg = document.getElementById("bonusMsg");
+
+
+const player = document.getElementById("player");
+const dealer = document.getElementById("dealer");
+
+
+const betBJ = document.getElementById("betBJ");
+const betR = document.getElementById("betR");
+const betS = document.getElementById("betS");
+
+const num = document.getElementById("num");
+const color = document.getElementById("color");
+
+
+const bjResult = document.getElementById("bjResult");
+const rResult = document.getElementById("rResult");
+const sResult = document.getElementById("sResult");
+
+const s1 = document.getElementById("s1");
+const s2 = document.getElementById("s2");
+const s3 = document.getElementById("s3");
+
+
+
+// saldo per far si che rimanga in memoria quello precedente
 let saldo = localStorage.getItem("dipreCoin");
 
 if(saldo===null){
